@@ -9,6 +9,9 @@
     "lint": "next lint",
     "heroku-postbuild": "npm run build"
   },
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "dependencies": {
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
@@ -36,3 +39,4 @@
     "tailwindcss": "^3.3.2"
   }
 }
+
