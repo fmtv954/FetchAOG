@@ -1,0 +1,13 @@
+# See: man pkg-config
+prefix=/Users/onlyprograming/.pyenv/versions/3.9.9
+exec_prefix=${prefix}
+libdir=/Users/onlyprograming/.pyenv/versions/3.9.9/lib
+includedir=${prefix}/include
+
+Name: Python
+Description: Build a C extension for Python
+Requires:
+Version: 3.9
+Libs.private: -ldl -L/Users/onlyprograming/.pyenv/versions/3.9.9/lib -Wl,-rpath,/Users/onlyprograming/.pyenv/versions/3.9.9/lib -L/opt/homebrew/lib -Wl,-rpath,/opt/homebrew/lib  -framework CoreFoundation
+Libs:
+Cflags: -I${includedir}/python3.9
