@@ -1,0 +1,26 @@
+# macOS system files
+.DS_Store
+
+# Logs and cache
+*.log
+node_modules/
+.npm/
+.cache/
+
+# Python bytecode
+*.pyc
+__pycache__/
+
+# AWS and other local config files
+.aws/
+.pyenv/
+.config/
+
+# Screenshots
+*.png
+
+# Others
+.vscode/
+.zsh_history
+.zsh_sessions/
+

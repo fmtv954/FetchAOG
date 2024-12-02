@@ -243,7 +243,11 @@ export default function AOGResults() {
   }
 
   if (error) {
-    return <div>Error: {error}</div>; // Display error message
+    return (
+      <div className="p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+        Error: {error}
+      </div>
+    );
   }
 
   if (!flightData) {
@@ -639,17 +643,8 @@ export default function AOGResults() {
             </div>
           </div>
           <div>
-            <p className="text-sm text-muted-foreground">Avg. Resolution Time</p>
-            <div 
-              className="flex justify-between items-center mt-1 cursor-pointer hover:bg-muted/50 p-2 rounded-md" 
-              onClick={() => setIsAvgResolutionTimeOpen(true)}
-            >
-              <p>Last 90 days</p>
-              <Badge variant="outline">{avgResolutionTimeData?.avgTime ? `${Math.floor(avgResolutionTimeData.avgTime / 60)}h ${avgResolutionTimeData.avgTime % 60}m` : "N/A"}</Badge>
-            </div>
-          </div>
-          <div>
-            <p className="font-semibold mb-2">Recent AOG Events</p>
+            <p className="text-sm text<continuation_point>
+muted-foreground">Recent AOG Events</p>
             <ul className="space-y-2 cursor-pointer" onClick={() => setIsRecentAOGEventsOpen(true)}>
               {(recentAOGEvents || []).map((event, index) => (
                 <li key={index} className="flex justify-between items-center hover:bg-muted/50 p-2 rounded-md">
@@ -659,36 +654,25 @@ export default function AOGResults() {
               ))}
             </ul>
           </div>
+          <div>
+            <p className="text-sm text-muted-foreground">Average Resolution Time</p>
+            <div className="flex justify-between items-center mt-1 cursor-pointer hover:bg-muted/50 p-2 rounded-md" onClick={() => setIsAvgResolutionTimeOpen(true)}>
+              <p>Last 90 days</p>
+              <Badge>{avgResolutionTimeData?.length || "N/A"} Days</Badge>
+            </div>
+          </div>
         </CardContent>
       </Card>
 
       {/* Popups */}
-      <LastAOGEventPopup
-        isOpen={isLastAOGEventOpen}
-        onClose={() => setIsLastAOGEventOpen(false)}
-        event={lastAOGEvent || {}}
-      />
-
-      <TotalAOGEventsPopup
-        isOpen={isTotalAOGEventsOpen}
-        onClose={() => setIsTotalAOGEventsOpen(false)}
-        events={totalAOGEvents || []}
-      />
-
-      <RecentAOGEventsPopup
-        isOpen={isRecentAOGEventsOpen}
-        onClose={() => setIsRecentAOGEventsOpen(false)}
-        events={recentAOGEvents || []}
-      />
-
-      <AvgResolutionTimePopup
-        isOpen={isAvgResolutionTimeOpen}
-        onClose={() => setIsAvgResolutionTimeOpen(false)}
-        data={avgResolutionTimeData || []}
-      />
+      <LastAOGEventPopup isOpen={isLastAOGEventOpen} onClose={() => setIsLastAOGEventOpen(false)} event={lastAOGEvent} />
+      <TotalAOGEventsPopup isOpen={isTotalAOGEventsOpen} onClose={() => setIsTotalAOGEventsOpen(false)} events={totalAOGEvents} />
+      <RecentAOGEventsPopup isOpen={isRecentAOGEventsOpen} onClose={() => setIsRecentAOGEventsOpen(false)} events={recentAOGEvents} />
+      <AvgResolutionTimePopup isOpen={isAvgResolutionTimeOpen} onClose={() => setIsAvgResolutionTimeOpen(false)} data={avgResolutionTimeData} />
     </div>
-  )
+  );
 }
     </div>
-  )
+  );
 }
+
