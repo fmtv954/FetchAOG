@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://your-heroku-app-name.herokuapp.com';
 import axios from 'axios';
 
 const AVIATIONSTACK_API_KEY = process.env.AVIATIONSTACK_API_KEY;
@@ -171,3 +171,4 @@ const api = {
 };
 
 export default api;
+
